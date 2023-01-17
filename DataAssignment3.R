@@ -3,8 +3,6 @@ setwd("~/Desktop/Coursera R Programming/Data Assignment 3/")
 getwd()
 
 
-
-
 # Assignment 1
 
 outcome <- read.csv("outcome-of-care-measures.csv",
@@ -19,7 +17,7 @@ best <- function(state, outcome){
     # load data
     df <- read.csv("outcome-of-care-measures.csv",
                    header = TRUE, na.strings = "Not Available")
-    data <- as.data.frame(df[,c(2,7,11,17,23)])
+    data <- as.data.frame(df[,c(2, 7, 11, 17, 23)])
     names(data) <- c("hospital", "state", outcomes)
     # check for state and outcome
     if (!state %in% unique(data$state)) {
@@ -53,7 +51,7 @@ rankhospital <- function(state, outcome, num = "best"){
     # load data
     df <- read.csv("outcome-of-care-measures.csv",
                    header = TRUE, na.strings = "Not Available")
-    data <- as.data.frame(df[,c(2,7,11,17,23)])
+    data <- as.data.frame(df[,c(2, 7, 11, 17, 23)])
     names(data) <- c("hospital", "state", outcomes)
     # check for state and outcome
     if (!state %in% unique(data$state)) {
@@ -92,7 +90,7 @@ rankall <- function(outcome, num = "best"){
     # load data
     df <- read.csv("outcome-of-care-measures.csv",
                    header = TRUE, na.strings = "Not Available")
-    data <- as.data.frame(df[,c(2,7,11,17,23)])
+    data <- as.data.frame(df[,c(2, 7, 11, 17, 23)])
     names(data) <- c("hospital", "state", outcomes)
     # check for outcome
     if (!outcome %in% outcomes) {
@@ -126,6 +124,7 @@ rankall <- function(outcome, num = "best"){
 }
 
 
+# Check:
 
 head(rankall("heart attack", 20), 10)
 tail(rankall("pneumonia", "worst"), 3)
