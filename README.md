@@ -88,7 +88,7 @@ Error in best("NY", "hert attack") : invalid outcome
 Save your code for this function to a file named `best.R`.
 
 
-### Ranking hospitals by outcome in a state
+### Ranking hospitals by outcome in a state
 
 Write a function called rankhospital that takes three arguments: the 2-character abbreviated name of a state (state), an outcome (outcome), and the ranking of a hospital in that state for that outcome (num). The function reads the `outcome-of-care-measures.csv` file and returns a character vector with the name of the hospital that has the ranking specified by the num argument. For example, the call
 
@@ -119,11 +119,11 @@ The function should use the following template.
 rankhospital <- function(state, outcome, num = "best") {
 		## Read outcome data
 
-	## Check that state and outcome are valid
+		## Check that state and outcome are valid
 
-	## Return hospital name in that state with the given rank
+		## Return hospital name in that state with the given rank
 
-	## 30-day death rate
+		## 30-day death rate
 ```
 
 The function should check the validity of its arguments. If an invalid `state` value is passed to `rankhospital`, the function should throw an error via the `stop` function with the exact message “invalid state”. If an invalid `outcome` value is passed to `rankhospital`, the function should throw an error via the `stop` function with the exact message “invalid outcome”.
@@ -144,8 +144,8 @@ Here is some sample output from the function.
 
 Save your code for this function to a file named rankhospital.R.
 
-
 ### Ranking hospitals in all states
+
 Write a function called rankall that takes two arguments: an outcome name (`outcome`) and a hospital ranking (`num`). The function reads the `outcome-of-care-measures.csv` file and returns a 2-column data frame containing the hospital in each state that has the ranking specified in num. For example the function call `rankall("heart attack", "best")` would return a data frame containing the names of the hospitals that are the best in their respective states for 30-day heart attack death rates. The function should return a value for every state (some may be `NA`). The first column in the data frame is named `hospital`, which contains the hospital name, and the second column is named `state`, which contains the 2-character abbreviation for the state name. Hospitals that do not have data on a particular outcome should be excluded from the set of hospitals when deciding the rankings.
 
 **Handling ties.** The `rankall` function should handle ties in the 30-day mortality rates in the same way that the `rankhospital` function handles ties.
@@ -154,15 +154,15 @@ The function should use the following template.
 
 ```{r}
 rankall <- function(outcome, num = "best") {
-		## Read outcome data
+	   ## Read outcome data
 
-	## Check that state and outcome are valid
+	   ## Check that state and outcome are valid
 
-	## For each state, find the hospital of the given rank
+	   ## For each state, find the hospital of the given rank
 
-	## Return a data frame with the hospital names and the
+	   ## Return a data frame with the hospital names and the
 
-	## (abbreviated) state name
+	   ## (abbreviated) state name
 }
 ```
 
@@ -176,16 +176,16 @@ Here is some sample output from the function.
 > source("rankall.R")
 > head(rankall("heart attack", 20), 10)
     	                      hospital state
-AK	                              <NA>    AK
-AL	    D W MCMILLAN MEMORIAL HOSPITAL    AL
-AR	 ARKANSAS METHODIST MEDICAL CENTER    AR
-AZ JOHN C LINCOLN DEER VALLEY HOSPITAL    AZ
-СA		         SHERMAN OAKS HOSPITAL	  CA
-CO	          SKY RIDGE MEDICAL CENTER    CO
-CT             MIDSTATE MEDICAL CENTER    CT
-DC		                          <NA>    DC
-DE  	                          <NA>    DE
-FL		 SOUTH FLORIDA BAPTIST HOSPITAL   FL
+AK	                                <NA>    AK
+AL	      D W MCMILLAN MEMORIAL HOSPITAL    AL
+AR	   ARKANSAS METHODIST MEDICAL CENTER    AR
+AZ       JOHN C LINCOLN DEER VALLEY HOSPITAL    AZ
+СA      	       SHERMAN OAKS HOSPITAL    CA
+CO	            SKY RIDGE MEDICAL CENTER    CO
+CT                   MIDSTATE MEDICAL CENTER    CT
+DC                                      <NA>    DC
+DE                                      <NA>    DE
+FL            SOUTH FLORIDA BAPTIST HOSPITAL    FL
 
 > tail(rankall("pneumonia", "worst"), 3)
                                      hospital state
