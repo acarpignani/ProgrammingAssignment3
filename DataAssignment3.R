@@ -4,7 +4,6 @@ getwd()
 
 
 # Assignment 1
-
 outcome <- read.csv("outcome-of-care-measures.csv",
                     header = TRUE, na.strings = "Not Available")
 hist(outcome[,11])
